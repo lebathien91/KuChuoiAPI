@@ -7,9 +7,7 @@ export const featureAPI = class {
     const excludeFields = ["page", "limit", "sort", "search", "populate"];
 
     excludeFields.forEach((el) => delete queryObj[el]);
-
     let queryStr = JSON.stringify(queryObj);
-
     queryStr = queryStr.replace(
       /\b(gt|gte|lt|lte|in)\b/g,
       (match) => `$${match}`
